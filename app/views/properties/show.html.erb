@@ -1,0 +1,8 @@
+<p>物件名：<%= @property.name %></p>
+<p>賃料：<%= "#{number_with_delimiter @property.price}円" %></p>
+<p>住所：<%= @property.address %></p>
+<p>築年数：<%= "#{@property.old}年" %></p>
+<p>備考：<%= @property.content %></p>
+
+<%= link_to '編集', edit_property_path(@property.id) %>
+<%= link_to '戻る', properties_path %>
