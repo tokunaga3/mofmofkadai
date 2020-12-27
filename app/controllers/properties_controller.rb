@@ -1,4 +1,6 @@
 class PropertiesController < ApplicationController
+  before_action :set_property, only: [:show, :edit, :update, :destroy]
+
   def index
     @properties = Property.all
   end
@@ -33,5 +35,9 @@ class PropertiesController < ApplicationController
   private
   def property_params
     params.require(:property).permit(:name, :price, :address, :old, :content)
+  end
+
+  def set_property
+    @property = Property.find(params[:id])
   end
 end
