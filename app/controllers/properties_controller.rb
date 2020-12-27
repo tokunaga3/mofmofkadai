@@ -29,7 +29,12 @@ class PropertiesController < ApplicationController
   def update
   end
 
-  def destroyed
+  def destroy
+    @property.destroy
+    respond_to do |format|
+      format.html { redirect_to properties_url, notice: '物件情報を削除しました' }
+    end
+
   end
 
   private
