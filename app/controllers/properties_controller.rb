@@ -10,6 +10,7 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    @property.moyoriekis.build
   end
 
   def edit
@@ -34,12 +35,12 @@ class PropertiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to properties_url, notice: '物件情報を削除しました' }
     end
-
   end
 
   private
   def property_params
-    params.require(:property).permit(:name, :price, :address, :old, :content)
+    params.require(:property).permit(:name, :price, :address, :old, :content,
+      moyorieki_attributes: [:rosen, :station, :foot, :sec_rosen, :sec_station, :sec_foot])
   end
 
   def set_property

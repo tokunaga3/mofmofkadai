@@ -18,21 +18,35 @@
   <div>
     <%= form.label :物件名 %>
     <%= form.text_field:name  %>
-    <%= form.hidden_field :name %>
     <%= form.label :賃料 %>
     <%= form.number_field :price %><nobr>円</nobr>
-    <%= form.hidden_field :price %>
     <%= form.label :住所 %>
     <%= form.text_field :address %>
-    <%= form.hidden_field :address %>
     <%= form.label :築年数 %>
     <%= form.number_field :old %><nobr>年</nobr>
-    <%= form.hidden_field :old %>
     <%= form.label :備考 %>
     <%= form.text_area :content %>
-    <%= form.hidden_field :content %>
-    <%= form.submit "登録する"%>
   </div>
+
+  <%= form.fields_for :moyorieki do |moyorieki| %>
+    <div>
+      <h1>最寄り駅１</h1>
+      <%= moyorieki.label :路線名 %>
+      <%= moyorieki.text_field :rosen %>
+      <%= moyorieki.label :駅名 %>
+      <%= moyorieki.text_field :station %>
+      <%= moyorieki.label :徒歩分数 %>
+      <%= moyorieki.number_field :foot %><nobr>分</nobr>
+      <h1>最寄り駅１</h1>
+      <%= moyorieki.label :路線名 %>
+      <%= moyorieki.text_field :sec_rosen %>
+      <%= moyorieki.label :駅名 %>
+      <%= moyorieki.text_field :sec_station %>
+      <%= moyorieki.label :徒歩分数 %>
+      <%= moyorieki.number_field :sec_foot %><nobr>分</nobr>
+      <%= form.submit "登録する"%>
+    </div>
+  <% end %>
 <% end %>
 
 <%= link_to '戻る', properties_path %>
