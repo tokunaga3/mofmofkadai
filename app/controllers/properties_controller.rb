@@ -6,6 +6,7 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @moyoriekis = @property.moyoriekis
   end
 
   def new
@@ -40,7 +41,9 @@ class PropertiesController < ApplicationController
   private
   def property_params
     params.require(:property).permit(:name, :price, :address, :old, :content,
-      moyorieki_attributes: [:rosen, :station, :foot, :sec_rosen, :sec_station, :sec_foot])
+      # moyorieki_attributes: [:property_id, :rosen, :station, :foot, :sec_rosen, :sec_station, :sec_foot])
+      moyoriekis_attributes: [:property_id,:id, :rosen, :station, :foot, :sec_rosen, :sec_station, :sec_foot])
+
   end
 
   def set_property

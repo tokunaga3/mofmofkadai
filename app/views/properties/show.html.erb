@@ -1,8 +1,20 @@
 <p>物件名：<%= @property.name %></p>
 <p>賃料：<%= "#{number_with_delimiter @property.price}円" %></p>
 <p>住所：<%= @property.address %></p>
-<p>築年数：<%= "#{@property.old}年" %></p>
-<p>備考：<%= @property.content %></p>
+<p>築年数 <%= "#{@property.old}年" %></p>
+<p>備考 <%= @property.content %></p>
+<% @moyoriekis.each do |moyorieki| %>
+ <% if @property.moyoriekis.any? %>
+ <h1>最寄駅１</h1>
+    <p>路線名 <%= moyorieki.rosen %></p>
+    <p>駅名 <%= moyorieki.station %></p>
+    <p>徒歩分数 <%= moyorieki.foot %></p>
+  <h1>最寄駅２</h1>
+    <p>路線名 <%= moyorieki.sec_rosen %></p>
+    <p>駅名 <%= moyorieki.sec_station %></p>
+    <p>徒歩分数 <%= moyorieki.sec_foot %></p>
+    <% end %>
+ <% end %>
 
 <%= link_to '編集', edit_property_path(@property.id) %>
 <%= link_to '戻る', properties_path %>
