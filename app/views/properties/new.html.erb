@@ -14,29 +14,28 @@
       </ul>
     </div>
   <% end %>
-
   <div>
-    <%= form.label :物件名 %>
-    <%= form.text_field:name  %>
-    <%= form.label :賃料 %>
-    <%= form.number_field :price %><nobr>円</nobr>
-    <%= form.label :住所 %>
-    <%= form.text_field :address %>
-    <%= form.label :築年数 %>
-    <%= form.number_field :old %><nobr>年</nobr>
-    <%= form.label :備考 %>
-    <%= form.text_area :content %>
+    <p><%= form.label :物件名 %></p>
+    <p><%= form.text_field:name  %></p>
+    <p><%= form.label :賃料 %></p>
+    <p><%= form.number_field :price %><nobr>円</nobr></p>
+    <p><%= form.label :住所 %></p>
+    <p><%= form.text_field :address %></p>
+    <p><%= form.label :築年数 %></p>
+    <p><%= form.number_field :old %><nobr>年</nobr></p>
+    <p><%= form.label :備考 %></p>
+    <p><%= form.text_area :content %></p>
   </div>
-
+<hr>
   <%= form.fields_for :moyoriekis do |moyorieki| %>
     <div>
       <h1>最寄り駅<%= moyorieki.index.to_i + 1 %></h1>
-      <%= moyorieki.label :路線名 %>
-      <%= moyorieki.text_field :rosen %>
-      <%= moyorieki.label :駅名 %>
-      <%= moyorieki.text_field :station %>
-      <%= moyorieki.label :徒歩分数 %>
-      <%= moyorieki.number_field :foot %><nobr>分</nobr>
+      <p><%= moyorieki.label :路線名 %></p>
+      <p><%= moyorieki.text_field :rosen %></p>
+      <p><%= moyorieki.label :駅名 %></p>
+      <p><%= moyorieki.text_field :station %></p>
+      <p><%= moyorieki.label :徒歩分数 %></p>
+      <p><%= moyorieki.number_field :foot %><nobr>分</nobr></p>
     </div>
   <% end %>
   <%= form.submit "登録する"%>

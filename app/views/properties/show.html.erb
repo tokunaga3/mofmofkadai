@@ -1,17 +1,19 @@
-<p>物件名：<%= @property.name %></p>
-<p>賃料：<%= "#{number_with_delimiter @property.price}円" %></p>
-<p>住所：<%= @property.address %></p>
-<p>築年数 <%= "#{@property.old}年" %></p>
-<p>備考 <%= @property.content %></p>
+<div class="property">
+  <p><b>物件名：</b><%= @property.name %></p>
+  <p><b>賃料：</b><%= "#{number_with_delimiter @property.price}円" %></p>
+  <p><b>住所：</b><%= @property.address %></p>
+  <p><b>築年数</b> <%= "#{@property.old}年" %></p>
+  <p><b>備考</b> <%= @property.content %></p>
 <br>
+</div>
 <hr>
 <% @moyoriekis.each_with_index do |moyorieki,i| %>
  <% if @property.moyoriekis.any? %>
- <div class="">
- <h1>最寄駅<%= i + 1 %></h1>
-    <p>路線名 <%= moyorieki.rosen %></p>
-    <p>駅名 <%= moyorieki.station %></p>
-    <p>徒歩分数 <%= moyorieki.foot %></p>
+   <h1>最寄駅<%= i + 1 %></h1>
+   <div class="property">
+    <p><b>路線名</b> <%= moyorieki.rosen %></p>
+    <p><b>駅名</b> <%= moyorieki.station %></p>
+    <p><b>徒歩分数</b> <%= moyorieki.foot %></p>
   </div>
     <% end %>
  <% end %>
