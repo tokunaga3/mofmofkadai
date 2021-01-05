@@ -30,23 +30,16 @@
 
   <%= form.fields_for :moyoriekis do |moyorieki| %>
     <div>
-      <h1>最寄り駅１</h1>
+      <h1>最寄り駅<%= moyorieki.index.to_i + 1 %></h1>
       <%= moyorieki.label :路線名 %>
       <%= moyorieki.text_field :rosen %>
       <%= moyorieki.label :駅名 %>
       <%= moyorieki.text_field :station %>
       <%= moyorieki.label :徒歩分数 %>
       <%= moyorieki.number_field :foot %><nobr>分</nobr>
-      <h1>最寄り駅１</h1>
-      <%= moyorieki.label :路線名 %>
-      <%= moyorieki.text_field :sec_rosen %>
-      <%= moyorieki.label :駅名 %>
-      <%= moyorieki.text_field :sec_station %>
-      <%= moyorieki.label :徒歩分数 %>
-      <%= moyorieki.number_field :sec_foot %><nobr>分</nobr>
-      <%= form.submit "登録する"%>
     </div>
   <% end %>
+  <%= form.submit "登録する"%>
 <% end %>
 
 <%= link_to '戻る', properties_path %>

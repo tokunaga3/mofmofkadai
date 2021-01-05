@@ -11,10 +11,11 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
-    @property.moyoriekis.build
+    2.times { @property.moyoriekis.build }
   end
 
   def edit
+    @property.moyoriekis.build
   end
 
   def create
@@ -29,6 +30,13 @@ class PropertiesController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @property.update(property_params)
+        format.html { redirect_to properties_url, notice: '物件情報を編集しました' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def destroy
@@ -41,9 +49,7 @@ class PropertiesController < ApplicationController
   private
   def property_params
     params.require(:property).permit(:name, :price, :address, :old, :content,
-      # moyorieki_attributes: [:property_id, :rosen, :station, :foot, :sec_rosen, :sec_station, :sec_foot])
-      moyoriekis_attributes: [:property_id,:id, :rosen, :station, :foot, :sec_rosen, :sec_station, :sec_foot])
-
+      moyoriekis_attributes: [:property_id,:id, :rosen, :station, :foot])
   end
 
   def set_property
