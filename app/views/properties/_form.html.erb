@@ -1,0 +1,26 @@
+<%= form_with(model: @property, local: true) do |form| %>
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%=pluralize(property.errors.count, "error") %>
+         prohibited this property from being saved:
+       </h2>
+      <ul>
+      <% property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.fields_for :moyoriekis do |moyorieki| %>
+    <div>
+      <h1>最寄り駅１</h1>
+      <%= moyorieki.label :路線名 %>
+      <%= moyorieki.text_field :rosen %>
+      <%= moyorieki.label :駅名 %>
+      <%= moyorieki.text_field :station %>
+      <%= moyorieki.label :徒歩分数 %>
+      <%= moyorieki.number_field :foot %><nobr>分</nobr>
+    </div>
+  <% end %>
+<% end %>
